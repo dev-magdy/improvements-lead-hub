@@ -1,17 +1,17 @@
 <h4>Scores</h4>
 <form>
     <div class="mb-3">
-        <label for="relative-score" class="form-label">Relative Ratings Score <u>({{sugRelativeScore}})</u></label>
+        <label for="relative-score" class="form-label">Relative Ratings Score <u>({{sugRelativeScore?.toFixed(2)}})</u></label>
         <input name="relative" type="number" class="form-control" id="relative-score" [(ngModel)]="relativeScore" [min]="1" [max]="7"
         (change)="calcOverall()">
     </div>
     <div class="mb-3">
-        <label for="ic-score" class="form-label">IC Score <u>({{sugICScore}})</u></label>
+        <label for="ic-score" class="form-label">IC Score <u>({{sugICScore?.toFixed(2)}})</u></label>
         <input name="ic" type="number" class="form-control" id="ic-score" [(ngModel)]="icScore" [min]="1" [max]="7"
         (change)="calcOverall()">
     </div>
     <div class="mb-3">
-        <label for="rubric-score" class="form-label">Rubric Score <u>({{sugRubricScore}})</u></label>
+        <label for="rubric-score" class="form-label">Rubric Score <u>({{sugRubricScore?.toFixed(2)}})</u></label>
         <input name="rubric" type="number" class="form-control" id="rubric-score" [(ngModel)]="rubricScore" [min]="1" [max]="7"
         (change)="calcOverall()">
     </div>
