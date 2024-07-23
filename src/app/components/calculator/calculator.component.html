@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="row mb-3">
+        <h4>Relative Ratings</h4>
+    </div>
+    <div class="row border-bottom mb-2 pb-1">
+        <div class="col-5">Completions</div>
+        <div class="col text-center"><strong>A</strong></div>
+        <div class="col text-center"><strong>B</strong></div>
+        <div class="col text-center"><strong>C</strong></div>
+        <div class="col text-center"><strong>D</strong></div>
+    </div>
+    <div class="row mb-3 align-items-center">
+        <div class="col-5">Trainer Ratings</div>
+        <div class="col">
+            <input type="number" class="form-control text-center" [(ngModel)]="trainerRatings.A" [min]="1" [max]="7" (change)="calculateAgreement()">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control text-center" [(ngModel)]="trainerRatings.B" [min]="1" [max]="7" (change)="calculateAgreement()">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control text-center" [(ngModel)]="trainerRatings.C" [min]="1" [max]="7" (change)="calculateAgreement()">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control text-center" [(ngModel)]="trainerRatings.D" [min]="1" [max]="7" (change)="calculateAgreement()">
+        </div>
+    </div>
+    <div class="row mb-3 align-items-center">
+        <div class="col-5">Reviewer Ratings</div>
+        <div class="col">
+            <input type="number" class="form-control text-center" [(ngModel)]="leadRatings.A" [min]="1" [max]="7" (change)="calculateAgreement()">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control text-center" [(ngModel)]="leadRatings.B" [min]="1" [max]="7" (change)="calculateAgreement()">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control text-center" [(ngModel)]="leadRatings.C" [min]="1" [max]="7" (change)="calculateAgreement()">
+        </div>
+        <div class="col">
+            <input type="number" class="form-control text-center" [(ngModel)]="leadRatings.D" [min]="1" [max]="7" (change)="calculateAgreement()">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <p>Agreement score: <u>{{ suggestedScore?.toFixed(2) }}</u></p>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+<h4>Review Schema</h4>
+<div class="container">
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <label for="just-quality" class="col-form-label">Informal Justification Quality</label>
+    </div>
+    <div class="col-4">
+      <select id="just-quality" class="form-select mb-3">
+        <option selected>----------</option>
+        <option value="1">Insuffecient</option>
+        <option value="2">Adequate</option>
+        <option value="3">Excellent</option>
+      </select>
+    </div>
+  </div>
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <label for="complexity" class="col-form-label">Perceived Task Complexity</label>
+    </div>
+    <div class="col-4">
+      <input type="number" id="complexity" class="form-control" min="1" max="7">
+    </div>
+  </div>
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <label for="declined" class="col-form-label">Should have been declined</label>
+    </div>
+    <div class="col-4">
+      <input class="form-check-input" type="checkbox" id="declined" aria-label="..." [checked]="declined" (click)="flipCheck('declined')">
+    </div>
+  </div>
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <label for="priority" class="col-form-label">Respects the priority order</label>
+    </div>
+    <div class="col-4">
+      <input class="form-check-input" type="checkbox" id="priority" aria-label="..." [checked]="priority" (click)="flipCheck('priority')">
+    </div>
+  </div>
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <label for="ai-generated" class="col-form-label">Suspicion of AI generated content</label>
+    </div>
+    <div class="col-4">
+      <input class="form-check-input" type="checkbox" id="ai-generated" aria-label="..." [checked]="ai" (click)="flipCheck('ai')">
+    </div>
+  </div>
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <label for="plagiarized" class="col-form-label">Identical content to other tasks</label>
+    </div>
+    <div class="col-4">
+      <input class="form-check-input" type="checkbox" id="plagiarized" aria-label="..." [checked]="plagiarized" (click)="flipCheck('plagiarized')">
+    </div>
+  </div>
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <label for="num-redos" class="col-form-label">Number of redos</label>
+    </div>
+    <div class="col-4">
+      <select id="num-redos" class="form-select mb-3">
+        <option selected>----------</option>
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5+</option>
+      </select>
+    </div>
+  </div>
+  <div class="row g-3 align-items-center">
+    <div class="col">
+      <label for="critique-issues" class="col-form-label">Issues in the critique</label>
+    </div>
+    <div class="col-4">
+      <input class="form-check-input" type="checkbox" id="critique-issues" aria-label="..." [checked]="critiquIssues" (click)="flipCheck('critiquIssues')">
+    </div>
+  </div>
+</div>

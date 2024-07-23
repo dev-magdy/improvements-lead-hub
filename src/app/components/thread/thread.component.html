@@ -1,0 +1,24 @@
+<div class="card my-2" cdkDrag>
+    <div class="card-header" [ngClass]="labelClass" cdkDragHandle>{{content.label}}</div>
+    <div class="card-body">
+        <h6 class="card-title"><em>{{content.location}}</em></h6>
+        <span class="badge text-bg-info mb-1">{{content.author}}</span>
+        <p class="card-text">{{content.text}}</p>
+        <div *ngIf="content.replies.length > 0" class="accordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" [attr.data-bs-target]="'#' + repliesID" aria-expanded="false" [attr.aria-controls]="repliesID">
+                  Replies
+                </button>
+              </h2>
+              <div [id]="repliesID" class="accordion-collapse collapse">
+                <div class="accordion-body">
+                    <ul class="list-group list-group-flush">
+                        <app-reply *ngFor="let reply of content.replies" [content]="reply" class="list-group-item">An item</app-reply>
+                    </ul>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>

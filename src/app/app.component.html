@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row border-primary border-bottom mb-3 justify-content-between align-items-center">
+    <div class="col">
+      <h6 class="display-6">Reviewer Hub</h6>
+    </div>
+    <div class="col d-flex justify-content-center">
+      <button type="button" class="btn btn-primary mx-1" (click)="copyJSON()">Copy Comments</button>
+      <button type="button" class="btn btn-primary mx-1" style="display: none;">Copy all</button>
+    </div>
+    <div class="col d-flex justify-content-end">
+      <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" role="switch" id="dark-switch" [checked]="isDark" (click)="switchTheme($event)">
+        <label class="form-check-label" for="dark-switch">Dark mode</label>
+      </div>
+    </div>
+  </div>
+  <div class="row border-primary border-bottom mb-3 justify-content-between">
+    <div class="col-4">
+      <app-calculator></app-calculator>
+    </div>
+    <div class="col-3">
+      <app-scores [sugICScore]="sugICScore" [sugRubricScore]="sugRubricScore"></app-scores>
+    </div>
+    <div class="col-4">
+      <app-review-schema></app-review-schema>
+    </div>
+  </div>
+  <div class="row mb-3 align-items-center">
+    <div class="col-3">
+      <h4>Comments</h4>
+    </div>
+    <div class="col">
+      <input class="form-control" #rawComments placeholder="Paste HTML here" (change)="extractComments(rawComments.value)">
+    </div>    
+  </div>
+  <div class="row" cdkDropListGroup>
+    <div class="col">
+      <h5 class="text-center">Ratings</h5>
+      <app-comments-list [threads]="ratingThreads" cdkDropList cdkDropListDisabled="true"></app-comments-list>
+    </div>
+    <div class="col">
+      <h5 class="text-center">Ideal Completion</h5>
+      <app-comments-list id="ic" [threads]="icThreads" cdkDropList [cdkDropListData]="icThreads"
+       (cdkDropListDropped)="drop($event)"></app-comments-list>
+    </div>
+    <div class="col">
+      <h5 class="text-center">Rubric</h5>
+      <app-comments-list id="rubric" [threads]="rubricThreads" cdkDropList [cdkDropListData]="rubricThreads"
+        (cdkDropListDropped)="drop($event)"></app-comments-list>
+    </div>
+    <div class="col">
+      <h5 class="text-center">General</h5>
+      <app-comments-list [threads]="otherThreads" cdkDropList [cdkDropListData]="otherThreads"
+        (cdkDropListDropped)="drop($event)"></app-comments-list>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container position-fixed top-0 end-0 p-3">
+  <div id="liveToast" class="toast align-items-center {{toast.style}} border-0" role="alert"
+  aria-live="assertive" aria-atomic="true" data-bs-animation="true" data-bs-autohide="true" data-bs-delay="5000">
+    <div class="d-flex">
+      <div class="toast-body">
+        {{toast.message}}
+      </div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+    </div>
+  </div>
+</div>

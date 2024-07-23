@@ -1,0 +1,11 @@
+.trainer-rating {
+    width: 25px;
+    height: 25px;
+    color: rgb(53 55 64);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
